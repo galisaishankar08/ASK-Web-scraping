@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ask Me</title>
+    <link rel="stylesheet" href="../static/index.css">
+</head>
+<body>
+
+    <header class="layout">
+        <nav class="navbar">
+            <div class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="90" height="90">       
+                    <image xlink:href="https://www.ask.com/wp-content/themes/ask-2022/assets/images/site-Logo.svg"width="75" height="75"/>    
+                </svg>
+            </div>
+            
+            <div class="nav-menu">
+                <form method="POST">
+                    <input type="text" name="key">
+                    <button type="submit">Search</button>
+                </form>
+                
+            </div>
+        </nav>
+    </header>
+
+    <section>
+        {% if results %}
+        <div class="grid">
+            <table id="myTable">
+                <tr class="header">
+                  <th style="width:30%;">Title</th>
+                  <th style="width:40%;">Description</th>
+                  <th style="width: 40%;">Url</th>
+                </tr>
+                {% for i in range(0,n) %}
+                <tr>
+                    <td>{{ results[i][0] }}</td>
+                    <td>{{ results[i][1] }}</td>
+                    <td><a href={{ results[i][2] }} target="_blank">{{ results[i][3] }}</a></td>
+                </tr>
+                {%endfor%}
+            </table>
+        </div>
+        {% endif %}
+    </section>
+    
+</body>
+</html>
