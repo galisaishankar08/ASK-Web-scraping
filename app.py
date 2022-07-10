@@ -5,11 +5,9 @@ import requests
 app = Flask(__name__)
 
 
-results = []
-
-
 @app.route('/', methods=["GET", "POST", 'DELETE'])
 def index():
+    results = []
     if request.method == "POST":
         key = request.form['key']
 
